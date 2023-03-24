@@ -99,11 +99,17 @@ const likeBtnIcon = document.querySelectorAll(".like-button")
 const likesCounterEl = document.querySelectorAll(".likes-counter"); 
 
 likeBtnEl.addEventListener("click", function() {
-    
+
 
 })
 
 // Formattare le date in formato italiano (gg/mm/aaaa)
+//create a function 
+    // take the year, month and day with substring
+    // return a new string with day in the place of year
+
+
+
 // Gestire l'assenza dell'immagine profilo con un elemento di fallback che contiene le iniziali dell'utente (es. Luca Formicola > LF).
 // Al click su un pulsante "Mi Piace" di un post, se abbiamo già cliccato dobbiamo decrementare il contatore e cambiare il colore del bottone.
 

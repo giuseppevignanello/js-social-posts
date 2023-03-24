@@ -94,7 +94,14 @@ posts.forEach((post) => {
     // change color with style or classList.add
     //inner to counter posts.likes+1
 
+const likeBtnEl = document.querySelectorAll(".likes__cta"); 
+const likeBtnIcon = document.querySelectorAll(".like-button")
+const likesCounterEl = document.querySelectorAll(".likes-counter"); 
 
+likeBtnEl.addEventListener("click", function() {
+    
+
+})
 
 // Formattare le date in formato italiano (gg/mm/aaaa)
 // Gestire l'assenza dell'immagine profilo con un elemento di fallback che contiene le iniziali dell'utente (es. Luca Formicola > LF).

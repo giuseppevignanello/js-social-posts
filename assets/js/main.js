@@ -105,7 +105,7 @@ likeBtnEl.forEach((element, index) => {
             if (likedPosts.includes(posts[index].id)) {
                 element.classList.remove("like-button--liked");
                 likesCounterEl[index].innerHTML = `Piace a <b id="like-counter-1" class="js-likes-counter"> ${posts[index].likes}</b> persone`;
-                delete likedPosts[index]; 
+                likedPosts.splice(index) 
 
             } else {
                 element.classList.add("like-button--liked");
@@ -144,10 +144,6 @@ function getInitials(name) {
     const initials = firstInitial + secondInitial
     return initials
 }
-
-console.log(getInitials("Mario Rossi"));
-
-
 
 
 // Al click su un pulsante "Mi Piace" di un post, se abbiamo già cliccato dobbiamo decrementare il contatore e cambiare il colore del bottone.

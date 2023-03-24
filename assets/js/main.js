@@ -94,19 +94,33 @@ posts.forEach((post) => {
     // change color with style or classList.add
     //inner to counter posts.likes+1
 
-const likeBtnEl = document.querySelectorAll(".likes__cta"); 
-const likeBtnIcon = document.querySelectorAll(".like-button")
-const likesCounterEl = document.querySelectorAll(".likes-counter"); 
+const likeBtnEl = document.querySelectorAll(".like-button")
+const likesCounterEl = document.querySelectorAll(".likes__counter"); 
 
-likeBtnEl.addEventListener("click", function() {
-
-
+likeBtnEl.forEach((element, index) => {
+    element.addEventListener("click", 
+    function() {
+        element.classList.add("like-button--liked");
+        likesCounterEl[index].innerHTML = `Piace a <b id="like-counter-1" class="js-likes-counter"> ${posts[index].likes + 1}</b> persone`
+        
+    
+    }
+    )
 })
+
+
 
 // Formattare le date in formato italiano (gg/mm/aaaa)
 //create a function 
     // take the year, month and day with substring
     // return a new string with day in the place of year
+
+function change_date_to_italian_format(dateStr) {
+    const year = dateStr.substring(0,4)
+    return year
+}
+
+console.log(change_date_to_italian_format("mario"));
 
 
 

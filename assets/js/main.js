@@ -116,11 +116,16 @@ likeBtnEl.forEach((element, index) => {
     // return a new string with day in the place of year
 
 function change_date_to_italian_format(dateStr) {
-    const year = dateStr.substring(0,4)
-    return year
+    const year = dateStr.substring(0,4);
+    const month =dateStr.substring(5,7);
+    const day = dateStr.substring(8,12);
+
+    const newDate = `${day}-${month}-${year}`
+    return newDate
 }
 
-console.log(change_date_to_italian_format("mario"));
+
+
 
 
 
@@ -141,7 +146,7 @@ function addPost (post) {
                     </div>
                     <div class="post-meta__data">
                         <div class="post-meta__author">${post.author.name}</div>
-                        <div class="post-meta__time">${post.created}</div>
+                        <div class="post-meta__time">${change_date_to_italian_format(post.created)}</div>
                     </div>                    
                 </div>
             </div>

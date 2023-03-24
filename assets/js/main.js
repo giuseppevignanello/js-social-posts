@@ -74,12 +74,12 @@ const posts = [
 
 // Take the DOM container 
 // loop into "post" with foreach
-    // Insert each post with insertadjacentHTMl and templete literal 
+// Insert each post with insertadjacentHTMl and templete literal 
 
-const containerEl = document.getElementById("container"); 
+const containerEl = document.getElementById("container");
 
 posts.forEach((post) => {
-    
+
     containerEl.insertAdjacentHTML("beforeend", addPost(post))
 })
 
@@ -91,29 +91,29 @@ posts.forEach((post) => {
 // take like btn from DOM
 //take likes counter from DOM
 // add event listener on like btn 
-    // change color with style or classList.add
-    //inner to counter posts.likes+1
+// change color with style or classList.add
+//inner to counter posts.likes+1
 
 const likeBtnEl = document.querySelectorAll(".like-button")
-const likesCounterEl = document.querySelectorAll(".likes__counter"); 
+const likesCounterEl = document.querySelectorAll(".likes__counter");
 
 const likedPosts = []
 
 likeBtnEl.forEach((element, index) => {
-    element.addEventListener("click", 
-    function() {
-        if (likedPosts.includes(posts[index].id)) {
-            element.classList.remove("like-button--liked"); 
-            likesCounterEl[index].innerHTML = `Piace a <b id="like-counter-1" class="js-likes-counter"> ${posts[index].likes}</b> persone`; 
+    element.addEventListener("click",
+        function () {
+            if (likedPosts.includes(posts[index].id)) {
+                element.classList.remove("like-button--liked");
+                likesCounterEl[index].innerHTML = `Piace a <b id="like-counter-1" class="js-likes-counter"> ${posts[index].likes}</b> persone`;
+                delete likedPosts[index]; 
 
-        } else {
-
-        element.classList.add("like-button--liked");
-        likesCounterEl[index].innerHTML = `Piace a <b id="like-counter-1" class="js-likes-counter"> ${posts[index].likes + 1}</b> persone`; 
-        likedPosts.push(posts[index].id)
+            } else {
+                element.classList.add("like-button--liked");
+                likesCounterEl[index].innerHTML = `Piace a <b id="like-counter-1" class="js-likes-counter"> ${posts[index].likes + 1}</b> persone`;
+                likedPosts.push(posts[index].id)
+            }
+            // console.log(likedPosts);
         }
-        // console.log(likedPosts);
-    }
     )
 })
 
@@ -121,13 +121,13 @@ likeBtnEl.forEach((element, index) => {
 
 // Formattare le date in formato italiano (gg/mm/aaaa)
 //create a function 
-    // take the year, month and day with substring
-    // return a new string with day in the place of year
+// take the year, month and day with substring
+// return a new string with day in the place of year
 
 function change_date_to_italian_format(dateStr) {
-    const year = dateStr.substring(0,4);
-    const month =dateStr.substring(5,7);
-    const day = dateStr.substring(8,12);
+    const year = dateStr.substring(0, 4);
+    const month = dateStr.substring(5, 7);
+    const day = dateStr.substring(8, 12);
 
     const newDate = `${day}-${month}-${year}`
     return newDate
@@ -135,13 +135,13 @@ function change_date_to_italian_format(dateStr) {
 
 // Gestire l'assenza dell'immagine profilo con un elemento di fallback che contiene le iniziali dell'utente (es. Luca Formicola > LF).
 
-function getInitials (name) {
-    const dividedName = name.split(" ") ; 
-    const firstName = dividedName[0]; 
-    const secondName = dividedName[1]; 
-    const firstInitial = firstName.charAt(0); 
+function getInitials(name) {
+    const dividedName = name.split(" ");
+    const firstName = dividedName[0];
+    const secondName = dividedName[1];
+    const firstInitial = firstName.charAt(0);
     const secondInitial = secondName.charAt(0);
-    const initials = firstInitial + secondInitial 
+    const initials = firstInitial + secondInitial
     return initials
 }
 
@@ -157,12 +157,12 @@ console.log(getInitials("Mario Rossi"));
 
 
 // function to add posts
-function addPost (post) {
+function addPost(post) {
     const postMarkup = `<div class="post">
             <div class="post__header">
                 <div class="post-meta">                    
                     <div class="post-meta__icon">
-                        <img class="profile-pic" src="${post.author.image===null ? getInitials(post.author.name) : post.author.image}" alt="${post.author.name}">                    
+                        <img class="profile-pic" src="${post.author.image === null ? getInitials(post.author.name) : post.author.image}" alt="${post.author.name}">                    
                     </div>
                     <div class="post-meta__data">
                         <div class="post-meta__author">${post.author.name}</div>
@@ -188,5 +188,5 @@ function addPost (post) {
                 </div> 
             </div>            
         </div>`;
-        return postMarkup
+    return postMarkup
 }

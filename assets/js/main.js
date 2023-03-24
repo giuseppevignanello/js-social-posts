@@ -102,9 +102,16 @@ const likedPosts = []
 likeBtnEl.forEach((element, index) => {
     element.addEventListener("click", 
     function() {
+        if (likedPosts.includes(posts[index].id)) {
+            element.classList.remove("like-button--liked"); 
+            likesCounterEl[index].innerHTML = `Piace a <b id="like-counter-1" class="js-likes-counter"> ${posts[index].likes}</b> persone`; 
+
+        } else {
+
         element.classList.add("like-button--liked");
         likesCounterEl[index].innerHTML = `Piace a <b id="like-counter-1" class="js-likes-counter"> ${posts[index].likes + 1}</b> persone`; 
         likedPosts.push(posts[index].id)
+        }
         // console.log(likedPosts);
     }
     )
@@ -155,7 +162,7 @@ function addPost (post) {
             <div class="post__header">
                 <div class="post-meta">                    
                     <div class="post-meta__icon">
-                        <img class="profile-pic" src="${post.author.image}" alt="${post.author.name}">                    
+                        <img class="profile-pic" src="${post.author.image===null ? getInitials(post.author.name) : post.author.image}" alt="${post.author.name}">                    
                     </div>
                     <div class="post-meta__data">
                         <div class="post-meta__author">${post.author.name}</div>

@@ -128,6 +128,18 @@ function change_date_to_italian_format(dateStr) {
 
 // Gestire l'assenza dell'immagine profilo con un elemento di fallback che contiene le iniziali dell'utente (es. Luca Formicola > LF).
 
+function getInitials (name) {
+    const dividedName = name.split(" ") ; 
+    const firstName = dividedName[0]; 
+    const secondName = dividedName[1]; 
+    const firstInitial = firstName.charAt(0); 
+    const secondInitial = secondName.charAt(0);
+    const initials = firstInitial + secondInitial 
+    return initials
+}
+
+console.log(getInitials("Mario Rossi"));
+
 
 
 
